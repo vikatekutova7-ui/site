@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Uk_Bodoni', serif;
-    background-color: #e4e5f2;
+    background-color: #bbbcca;
     color: #333;
     line-height: 1.6;
     min-height: 100vh;
@@ -15,15 +15,55 @@ body {
     flex-direction: column;
 }
 
+.hero {
+    background: #e4e5f2;
+    color: white;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    margin: -2rem -2rem 2rem -2rem;
+}
+
+.hero1 {
+    
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem 2rem;
+    margin: 2rem 0;
+    border-radius: 10px;
+}
+
+.hero1 h1 {
+    font-family: 'Uk_Bodoni', serif;
+    font-size: 2.5rem;
+    color: #463e3e;
+    margin-bottom: 1.5rem;
+}
+
+.hero1 h2 {
+    font-family: 'Uk_Bodoni', serif;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: #000000;
+    max-width: 700px;
+    font-weight: normal;
+}
 @font-face {
     font-family: 'Uk_Bodoni';
-    src: url('../fonts/Uk_Bodoni.woff2') format('woff2');
+    src: url('../fonts/ofont.ru_Uk_Bodoni.ttf') format('woff2');
 }
 
 @font-face {
     font-family: 'Good Vibes Pro';
-    src: url('../fonts/GoodVibesPro.woff2') format('woff2');
-    /* ЗАМЕНИТЕ: Скачайте шрифт Good Vibes Pro */
+    src: url('../fonts/ofont.ru_Good\ Vibes\ Pro.ttf') format('woff2');
+
 }
 
 @font-face {
@@ -72,13 +112,19 @@ nav {
 }
 
 .nav-links a {
+    display: inline-block;
     text-decoration: none;
-    color: #c2c3cc;
-    transition: color 0.3s;
+    color: #9a8386;
+    padding: 8px 20px;
+    border: 2px solid #9a8386;
+    border-radius: 5px;
+    font-family: 'Uk_Bodoni', serif;
+    transition: all 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #9a8386;
+    background-color: #9a8386;
+    color: white;
 }
 main {
     flex: 1;
@@ -103,13 +149,13 @@ main {
 .hero .peretyazhka {
     font-family: 'Uk_Bodoni', serif;
     font-size: 3.5rem;
-    color: #c2c3cc;
+    color: #525257;
     display: block;
 }
 
 .hero .myagkoy {
     font-family: 'Good Vibes Pro', cursive;
-    font-size: 2rem;
+    font-size: 4rem;
     color: #9a8386;
     display: block;
     margin: 0.5rem 0;
@@ -118,7 +164,7 @@ main {
 .hero .mebel {
     font-family: 'Uk_Bodoni', serif;
     font-size: 4rem;
-    color: #c2c3cc;
+    color: #525257;
     display: block;
 }
 
@@ -196,10 +242,9 @@ main {
     object-fit: contain;
     border-radius: 5px;
 }
-/* Футер */
 footer {
     background-color: #fff;
-    color: #c2c3cc;
+    color: #1f2022;
     padding: 2rem;
     margin-top: auto;
 }
@@ -227,9 +272,76 @@ footer {
 }
 
 .social-links a:hover {
-    color: #c2c3cc;
+    color: #55555a;
 }
 
 .contact-info {
     font-family: 'Uk_Bodoni', serif;
+}
+.catalog-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.catalog-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(154, 131, 134, 0.3);
+}
+main section div[style*="background: white"] {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+main section div[style*="background: white"]:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(154, 131, 134, 0.25);
+}
+
+.why-me {
+    padding: 3rem 0;
+    margin: 3rem 0;
+}
+
+.why-me-title {
+    text-align: center;
+    color: #3a3a3a;
+    font-family: 'Uk_Bodoni', serif;
+    font-size: 2.8rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+}
+
+.why-me-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.why-me-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.why-me-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.why-me-card h3 {
+    color: #975d5d;
+    font-family: 'Uk_Bodoni', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.why-me-card p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
