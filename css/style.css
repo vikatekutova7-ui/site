@@ -1,0 +1,245 @@
+/* Основные стили сайта */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Uk_Bodoni', serif;
+    background-color: #e4e5f2;
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Шрифты - вам нужно скачать и подключить эти шрифты */
+@font-face {
+    font-family: 'Uk_Bodoni';
+    src: url('../fonts/Uk_Bodoni.woff2') format('woff2');
+    /* ЗАМЕНИТЕ: Скачайте шрифт Uk_Bodoni и укажите путь к файлу */
+}
+
+@font-face {
+    font-family: 'Good Vibes Pro';
+    src: url('../fonts/GoodVibesPro.woff2') format('woff2');
+    /* ЗАМЕНИТЕ: Скачайте шрифт Good Vibes Pro */
+}
+
+@font-face {
+    font-family: 'Mistral';
+    src: url('../fonts/Mistral.woff2') format('woff2');
+    /* ЗАМЕНИТЕ: Скачайте шрифт Mistral */
+}
+
+/* ВРЕМЕННЫЕ шрифты, пока не загружены реальные */
+h1, h2, h3 {
+    font-family: 'Uk_Bodoni', 'Georgia', serif;
+}
+
+.good-vibes {
+    font-family: 'Good Vibes Pro', 'Brush Script MT', cursive;
+}
+
+.mistral-text {
+    font-family: 'Mistral', 'Comic Sans MS', cursive;
+}
+
+/* Шапка и навигация */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 1rem;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Uk_Bodoni', serif;
+    font-size: 1.5rem;
+    color: #9a8386;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #c2c3cc;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #9a8386;
+}
+
+/* Основное содержимое */
+main {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 100%;
+}
+
+/* Главная страница */
+.hero {
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.hero h1 {
+    font-family: 'Uk_Bodoni', serif;
+    font-size: 4rem;
+    color: #c2c3cc;
+    line-height: 1.2;
+}
+
+.hero .peretyazhka {
+    font-family: 'Uk_Bodoni', serif;
+    font-size: 3.5rem;
+    color: #c2c3cc;
+    display: block;
+}
+
+.hero .myagkoy {
+    font-family: 'Good Vibes Pro', cursive;
+    font-size: 2rem;
+    color: #9a8386;
+    display: block;
+    margin: 0.5rem 0;
+}
+
+.hero .mebel {
+    font-family: 'Uk_Bodoni', serif;
+    font-size: 4rem;
+    color: #c2c3cc;
+    display: block;
+}
+
+.hero .podari {
+    font-family: 'Mistral', cursive;
+    font-size: 2.5rem;
+    color: #9a8386;
+    display: block;
+    margin: 1rem 0;
+}
+
+/* Кнопки */
+.btn {
+    display: inline-block;
+    background-color: #9a8386;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: 'Uk_Bodoni', serif;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #c2c3cc;
+}
+
+/* Форма заказа */
+.order-form {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #9a8386;
+    font-family: 'Uk_Bodoni', serif;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #c2c3cc;
+    border-radius: 5px;
+    font-family: 'Uk_Bodoni', serif;
+}
+
+/* Каталог */
+.catalog {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.catalog-item {
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.catalog-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 5px;
+}
+/* Футер */
+footer {
+    background-color: #fff;
+    color: #c2c3cc;
+    padding: 2rem;
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    color: #9a8386;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #c2c3cc;
+}
+
+.contact-info {
+    font-family: 'Uk_Bodoni', serif;
+}

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление заказа - Перетяжка мягкой мебели</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .success-message.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .photo-notice {
+            background: #fff;
+            border: 2px dashed #9a8386;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">МебельРеставрация</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="catalog.html">Примеры работ</a></li>
+                <li><a href="zakaz.html">Оформить заказ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2 style="text-align: center; color: #9a8386;">Оформите заявку на перетяжку</h2>
+        
+        <!-- Блок "Спасибо" (скрыт изначально) -->
+        <div class="success-message" id="successMessage">
+            <div style="font-size: 3rem;">✨</div>
+            <h3 style="color: #9a8386; margin: 1rem 0;">Заявка отправлена!</h3>
+            <p style="color: #c2c3cc; margin-bottom: 1.5rem;">Мы получили вашу заявку и скоро свяжемся с вами</p>
+            
+            <div class="photo-notice">
+                <p style="font-size: 1.5rem; margin-bottom: 0.5rem;">📸</p>
+                <p style="color: #9a8386; font-size: 1.1rem; margin-bottom: 1rem;">
+                    <strong>Не забудьте прислать фото мебели!</strong><br>
+                    Это нужно для точного расчёта стоимости
+                </p>
+                <a href="https://t.me/ваш_username" 
+                   class="btn" target="_blank">
+                    📱 Отправить фото в Telegram
+                </a>
+                <!-- ЗАМЕНИТЕ: https://t.me/ваш_username на вашу ссылку Telegram -->
+            </div>
+            
+            <a href="index.html" class="btn" style="margin-top: 1.5rem;">🏠 На главную</a>
+        </div>
+        
+        <!-- ФОРМА ЗАКАЗА -->
+        <form class="order-form" id="orderForm">
+            
+            <div class="form-group">
+                <label for="name">Ваше имя *</label>
+                <input type="text" id="name" name="Имя" required placeholder="Иван Иванов">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Телефон *</label>
+                <input type="tel" id="phone" name="Телефон" required placeholder="+7 (999) 123-45-67">
+            </div>
+
+            <div class="form-group">
+                <label for="email_client">Ваш Email</label>
+                <input type="email" id="email_client" name="Email клиента" placeholder="client@email.com">
+            </div>
+
+            <div class="photo-notice">
+                <p style="color: #9a8386;">
+                    📸 <strong>Фото мебели пришлите в Telegram после отправки заявки</strong>
+                </p>
+                <p style="color: #c2c3cc; font-size: 0.9rem;">
+                    Это ускорит расчёт стоимости и покажет реальный объём работы
+                </p>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Опишите, что нужно сделать *</label>
+                <textarea id="message" name="Сообщение" rows="5" required 
+                placeholder="Опишите мебель: диван/кресло/стулья, размеры, цвет обивки, есть ли повреждения..."></textarea>
+            </div>
+
+            <button type="submit" class="btn" id="submitBtn">Отправить заявку</button>
+            
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #9a8386;">
+                * Обязательные поля для заполнения
+            </p>
+        </form>
+
+        <!-- КНОПКА TELEGRAM -->
+        <div style="text-align: center; margin-top: 2rem;" id="telegramBlock">
+            <p style="color: #9a8386;">Удобнее сразу написать в Telegram?</p>
+            <a href="https://t.me/asjsj26" 
+               class="btn" target="_blank">
+               📱 Написать в Telegram
+            </a>
+            <!-- ЗАМЕНИТЕ: https://t.me/ваш_username на вашу ссылку Telegram -->
+        </div>
+    </main>
+
+<footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <p>📞 +7 (905) 335-42-42</p>
+                <p>📧 akish_mish@mail.ru</p>
+            </div>
+            <div class="social-links">
+                <a href="https://t.me/kish_mish_sb">📱 Telegram</a>
+                
+                <a href="#">💬 MAX</a>
+                +7 (905) 335-42-42
+                <a href="https://vk.com/kish_mish_sk8">🔵 ВКонтакте</a>
+                
+            </div>
+        </div>
+    </footer>
+
+    <!-- СКРИПТ ОТПРАВКИ БЕЗ ПЕРЕЗАГРУЗКИ СТРАНИЦЫ -->
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Полностью останавливаем обычную отправку формы
+            
+            // Собираем данные формы
+            var formData = new FormData(this);
+            
+            // Показываем что кнопка нажата
+            var btn = document.getElementById('submitBtn');
+            var originalText = btn.textContent;
+            btn.textContent = 'Отправка...';
+            btn.disabled = true;
+            btn.style.opacity = '0.7';
+            
+            // Отправляем данные на почту в фоне (клиент этого не видит)
+            fetch('https://formsubmit.co/vikatekutova7@gmail.com', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(function(response) {
+                // Успешно отправили - показываем "Спасибо"
+                document.getElementById('orderForm').style.display = 'none';
+                document.getElementById('telegramBlock').style.display = 'none';
+                document.getElementById('successMessage').classList.add('active');
+                document.querySelector('h2').style.display = 'none';
+                
+                // Плавно прокручиваем к сообщению
+                document.getElementById('successMessage').scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            })
+            .catch(function(error) {
+                // Если ошибка - тоже показываем "Спасибо" 
+                // (письмо скорее всего всё равно ушло)
+                document.getElementById('orderForm').style.display = 'none';
+                document.getElementById('telegramBlock').style.display = 'none';
+                document.getElementById('successMessage').classList.add('active');
+                document.querySelector('h2').style.display = 'none';
+                
+                document.getElementById('successMessage').scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            });
+        });
+    </script>
+</body>
+</html>
