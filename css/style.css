@@ -1,4 +1,4 @@
-/* Основные стили сайта */
+
 * {
     margin: 0;
     padding: 0;
@@ -15,11 +15,9 @@ body {
     flex-direction: column;
 }
 
-/* Шрифты - вам нужно скачать и подключить эти шрифты */
 @font-face {
     font-family: 'Uk_Bodoni';
     src: url('../fonts/Uk_Bodoni.woff2') format('woff2');
-    /* ЗАМЕНИТЕ: Скачайте шрифт Uk_Bodoni и укажите путь к файлу */
 }
 
 @font-face {
@@ -31,10 +29,9 @@ body {
 @font-face {
     font-family: 'Mistral';
     src: url('../fonts/Mistral.woff2') format('woff2');
-    /* ЗАМЕНИТЕ: Скачайте шрифт Mistral */
+
 }
 
-/* ВРЕМЕННЫЕ шрифты, пока не загружены реальные */
 h1, h2, h3 {
     font-family: 'Uk_Bodoni', 'Georgia', serif;
 }
@@ -47,7 +44,6 @@ h1, h2, h3 {
     font-family: 'Mistral', 'Comic Sans MS', cursive;
 }
 
-/* Шапка и навигация */
 header {
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -84,8 +80,6 @@ nav {
 .nav-links a:hover {
     color: #9a8386;
 }
-
-/* Основное содержимое */
 main {
     flex: 1;
     max-width: 1200px;
@@ -94,7 +88,6 @@ main {
     width: 100%;
 }
 
-/* Главная страница */
 .hero {
     text-align: center;
     padding: 4rem 0;
@@ -137,7 +130,6 @@ main {
     margin: 1rem 0;
 }
 
-/* Кнопки */
 .btn {
     display: inline-block;
     background-color: #9a8386;
@@ -155,7 +147,6 @@ main {
     background-color: #c2c3cc;
 }
 
-/* Форма заказа */
 .order-form {
     max-width: 600px;
     margin: 2rem auto;
@@ -185,7 +176,6 @@ main {
     font-family: 'Uk_Bodoni', serif;
 }
 
-/* Каталог */
 .catalog {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
