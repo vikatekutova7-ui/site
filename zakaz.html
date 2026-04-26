@@ -112,7 +112,7 @@
 
         <div style="text-align: center; margin-top: 2rem;" id="telegramBlock">
             <p style="color: #9a8386;">Удобнее сразу написать в Telegram?</p>
-            <a href="https://t.me/asjsj26" 
+            <a href="https://t.me/kish_mish_sb" 
                class="btn" target="_blank">
                📱 Написать в Telegram
             </a>
@@ -141,6 +141,7 @@
         document.getElementById('orderForm').addEventListener('submit', function(e) {
             e.preventDefault(); 
             
+            // Собираем данные формы
             var formData = new FormData(this);
             
             var btn = document.getElementById('submitBtn');
@@ -149,7 +150,7 @@
             btn.disabled = true;
             btn.style.opacity = '0.7';
             
-            fetch('https://formsubmit.co/vikatekutova7@gmail.com', {
+            fetch('https://formsubmit.co/akish_mish@mail.ru', {
                 method: 'POST',
                 body: formData,
                 headers: {
