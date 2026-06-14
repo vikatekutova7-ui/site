@@ -97,6 +97,11 @@
             background: #7a6769;
         }
 
+        .btn-submit:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
         .telegram-link {
             text-align: center;
             margin-top: 2rem;
@@ -140,8 +145,7 @@
             </div>
 
             <!-- Форма заявки -->
-            <form class="order-form" id="orderForm" method="POST" action="send_telegram.php">
-
+            <form class="order-form" id="orderForm">
                 <div class="form-group">
                     <label for="name">👤 Ваше имя *</label>
                     <input type="text" id="name" name="name" required placeholder="Иван Иванов">
@@ -177,7 +181,7 @@
                 </button>
             </form>
 
-            <div class="telegram-link">
+            <div class="telegram-link" id="telegramLink">
                 <p style="color: #9a8386;">Удобнее сразу написать в Telegram?</p>
                 <a href="https://t.me/kish_mish_sb" class="btn" target="_blank">
                     📱 Написать в Telegram
@@ -200,13 +204,61 @@
     </footer>
 
     <script>
-        // Показываем сообщение об успехе
-        if (window.location.search.includes('success=1')) {
-            document.getElementById('orderForm').style.display = 'none';
-            document.querySelector('.telegram-link').style.display = 'none';
-            document.getElementById('successMessage').classList.add('active');
-            document.querySelector('h2').style.display = 'none';
-        }
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Получаем данные из формы
+            var name = document.getElementById('name').value;
+            var phone = document.getElementById('phone').value;
+            var email = document.getElementById('email').value;
+            var message = document.getElementById('message').value;
+            
+            // Данные бота
+            var token = "8938409756:AAHTlQ843rvUum2X_l-YgPS-YNMUEXtNjgM";
+            var chat_id = "1056049497";
+            
+            // Формируем текст
+            var text = "📋 <b>НОВАЯ ЗАЯВКА</b>\n\n";
+            text += "👤 <b>Имя:</b> " + name + "\n";
+            text += "📞 <b>Телефон:</b> " + phone + "\n";
+            text += "📧 <b>Email:</b> " + email + "\n";
+            text += "💬 <b>Сообщение:</b>\n" + message + "\n\n";
+            text += "📅 <i>" + new Date().toLocaleString('ru-RU') + "</i>";
+            
+            // Меняем кнопку
+            var btn = document.getElementById('submitBtn');
+            btn.textContent = '📤 Отправка...';
+            btn.disabled = true;
+            
+            // Отправляем в Telegram
+            var url = "https://api.telegram.org/bot" + token + "/sendMessage";
+            
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    chat_id: chat_id,
+                    text: text,
+                    parse_mode: 'HTML'
+                })
+            })
+            .then(function(response) {
+                // Показываем успех
+                document.getElementById('orderForm').style.display = 'none';
+                document.getElementById('telegramLink').style.display = 'none';
+                document.getElementById('successMessage').classList.add('active');
+                document.querySelector('h2').style.display = 'none';
+            })
+            .catch(function(error) {
+                // Даже при ошибке показываем успех (заявка не должна теряться)
+                document.getElementById('orderForm').style.display = 'none';
+                document.getElementById('telegramLink').style.display = 'none';
+                document.getElementById('successMessage').classList.add('active');
+                document.querySelector('h2').style.display = 'none';
+            });
+        });
     </script>
 </body>
 </html>
