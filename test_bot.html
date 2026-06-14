@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Тест бота</title>
+</head>
+<body>
+    <h2>Проверка отправки в Telegram</h2>
+    <button onclick="testBot()" style="padding: 20px; font-size: 18px;">
+        📤 Отправить тестовое сообщение
+    </button>
+    <p id="result"></p>
+
+    <script>
+    function testBot() {
+        var token = "8938409756:AAHTlQ843rvUum2X_l-YgPS-YNMUEXtNjgM";
+        var chat_id = "1056049497";
+        
+        document.getElementById('result').textContent = 'Отправка...';
+        
+        fetch("https://api.telegram.org/bot" + token + "/sendMessage", {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                chat_id: chat_id,
+                text: '🧪 Тестовое сообщение с сайта! ' + new Date().toLocaleString('ru-RU')
+            })
+        })
+        .then(r => r.json())
+        .then(data => {
+            console.log(data);
+            if (data.ok) {
+                document.getElementById('result').textContent = '✅ Успешно! Проверьте Telegram';
+                document.getElementById('result').style.color = 'green';
+            } else {
+                document.getElementById('result').textContent = '❌ Ошибка: ' + data.description;
+                document.getElementById('result').style.color = 'red';
+            }
+        })
+        .catch(error => {
+            document.getElementById('result').textContent = '❌ Ошибка: ' + error;
+            document.getElementById('result').style.color = 'red';
+        });
+    }
+    </script>
+</body>
+</html>
