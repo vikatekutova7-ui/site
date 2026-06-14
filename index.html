@@ -3,203 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Оформить заказ - Перетяжка мебели | МебельщикАртем</title>
+    <title>Перетяжка мягкой мебели</title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .zakaz-container {
-            max-width: 650px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        .success-message {
-            display: none;
-            text-align: center;
-            background: #fff;
-            border-radius: 12px;
-            padding: 3rem 2rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            animation: fadeIn 0.5s;
-        }
-
-        .success-message.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .order-form {
-            background: #fff;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #5a4e50;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border: 2px solid #e0d5d7;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-            box-sizing: border-box;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #9a8386;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .photo-notice {
-            background: #fff;
-            border: 2px dashed #9a8386;
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            text-align: center;
-        }
-
-        .btn-submit {
-            width: 100%;
-            padding: 1rem;
-            background: #9a8386;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .btn-submit:hover {
-            background: #7a6769;
-        }
-
-        .btn-submit:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-        }
-
-        .error-message {
-            display: none;
-            background: #ffe0e0;
-            color: #c00;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .error-message.active {
-            display: block;
-        }
-    </style>
 </head>
 <body>
     <header>
         <nav>
-            <a href="index.html" class="logo">МебельщикАртем</a>
+            <a href="index.html" class="logo">Мебельщик Артем</a>
             <ul class="nav-links">
                 <li><a href="index.html">Главная</a></li>
                 <li><a href="catalog.html">Примеры работ</a></li>
-                <li><a href="zakaz.html" class="active">Оформить заказ</a></li>
+                <li><a href="zakaz.html">Оформить заказ</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <div class="zakaz-container">
-            <h2 style="text-align: center; color: #9a8386; margin-bottom: 1.5rem;">Оформите заявку на перетяжку</h2>
-
-            <!-- Сообщение об успехе -->
-            <div class="success-message" id="successMessage">
-                <div style="font-size: 3rem;">✅</div>
-                <h3 style="color: #9a8386; margin: 1rem 0;">Заявка отправлена!</h3>
-                <p style="color: #5a4e50; margin-bottom: 1.5rem;">
-                    Мы получили вашу заявку и скоро свяжемся с вами
-                </p>
-                <div class="photo-notice">
-                    <p style="font-size: 1.5rem; margin-bottom: 0.5rem;">📸</p>
-                    <p style="color: #9a8386; margin-bottom: 1rem;">
-                        <strong>Не забудьте прислать фото мебели!</strong>
-                    </p>
-                    <a href="https://t.me/kish_mish_sb" class="btn" target="_blank">
-                        📱 Отправить фото в Telegram
-                    </a>
-                </div>
-                <a href="index.html" class="btn" style="margin-top: 1.5rem;">🏠 На главную</a>
+        <section class="hero">
+            <h1>
+                <span class="peretyazhka">ПЕРЕТЯЖКА</span>
+                <span class="myagkoy">мягкой</span>
+                <span class="mebel">МЕБЕЛИ</span>
+            </h1>
+            <p class="podari">подари новую жизнь</p>
+            <div style="margin-top: 2rem;">
+                <a href="catalog.html" class="btn">Посмотреть мои работы</a>
             </div>
-
-            <!-- Форма -->
-            <form class="order-form" id="orderForm" method="POST" action="send.php">
-                
-                <div class="error-message" id="errorMessage">
-                    ❌ Ошибка отправки. Попробуйте ещё раз или напишите в Telegram.
-                </div>
-
-                <div class="form-group">
-                    <label for="name">Ваше имя *</label>
-                    <input type="text" id="name" name="name" required placeholder="Иван Иванов">
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Телефон *</label>
-                    <input type="tel" id="phone" name="phone" required placeholder="+7 (999) 123-45-67">
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Ваш Email</label>
-                    <input type="email" id="email" name="email" placeholder="client@email.com">
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Опишите, что нужно сделать *</label>
-                    <textarea id="message" name="message" rows="5" required 
-                    placeholder="Опишите мебель: диван/кресло/стулья, размеры, цвет обивки, есть ли повреждения..."></textarea>
-                </div>
-
-                <div class="photo-notice">
-                    <p style="color: #9a8386;">
-                        📸 <strong>Фото мебели пришлите в Telegram после отправки заявки</strong>
-                    </p>
-                    <p style="color: #888; font-size: 0.9rem;">
-                        Это ускорит расчёт стоимости
-                    </p>
-                </div>
-
-                <button type="submit" class="btn-submit" id="submitBtn">
-                    📤 Отправить заявку
-                </button>
-            </form>
-
-            <div style="text-align: center; margin-top: 2rem;">
-                <p style="color: #9a8386;">Удобнее сразу написать в Telegram?</p>
-                <a href="https://t.me/kish_mish_sb" class="btn" target="_blank">
-                    📱 Написать в Telegram
-                </a>
+            <div style="margin-top: 2rem;">
+                <a href="zakaz.html" class="btn">Заказать перетяжку</a>
             </div>
-        </div>
+        </section>
+
+        <section class="hero1">
+            <h1>
+                <span class="text">Всем здравствуйте!</span>
+            </h1>
+            <h2>
+                <span class="text">Меня зовут Артём, и я делаю так, чтобы старая мебель выглядела как новая. </span>
+            </h2>
+        </section>
+
+        <section class="why-me">
+            <h2 class="why-me-title">Мои услуги</h2>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 600px; margin: 0 auto;">
+                <div class="why-me-card">
+                    <h3>Перетяжка диванов</h3>
+                    <p>Полное обновление вашего дивана</p>
+                </div>
+                <div class="why-me-card">
+                    <h3>Перетяжка кресел</h3>
+                    <p>Индивидуальный подход к каждому креслу</p>
+                </div>
+                <div class="why-me-card">
+                    <h3>Перетяжка стульев</h3>
+                    <p>Дарю стульям новую жизнь</p>
+                </div>
+                <div class="why-me-card">
+                    <h3>Перетяжка пуфиков</h3>
+                    <p>Шью только из качественных материалов</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="why-me">
+            <h2 class="why-me-title">Почему выбирают меня</h2>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 600px; margin: 0 auto;">
+                <div class="why-me-card">
+                    <h3>Ручная работа</h3>
+                    <p>Каждый шов — вручную, никакого конвейера. Только внимание к деталям.</p>
+                </div>
+                <div class="why-me-card">
+                    <h3>Качественные материалы</h3>
+                    <p>Ткани проверенных брендов: велюр, жаккард, экокожа, рогожка.</p>
+                </div>
+                <div class="why-me-card">
+                    <h3>Быстрые сроки</h3>
+                    <p>Диван — от 5 дней, кресло — от 3 дней. Без потери качества.</p>
+                </div>
+                <div class="why-me-card">
+                    <h3>Честная цена</h3>
+                    <p>Никаких скрытых платежей. Стоимость обсуждаем до начала работы.</p>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -210,21 +96,11 @@
             </div>
             <div class="social-links">
                 <a href="https://t.me/kish_mish_sb">📱 Telegram</a>
+                <a href="#">💬 MAX</a>
+                +7 (905) 335-42-42
                 <a href="https://vk.com/kish_mish_sk8">🔵 ВКонтакте</a>
             </div>
         </div>
     </footer>
-
-    <script>
-        // Показываем успех, если вернулись с параметром ?success=1
-        if (window.location.search.includes('success=1')) {
-            document.getElementById('orderForm').style.display = 'none';
-            document.getElementById('successMessage').classList.add('active');
-        }
-        
-        if (window.location.search.includes('error=1')) {
-            document.getElementById('errorMessage').classList.add('active');
-        }
-    </script>
 </body>
 </html>
