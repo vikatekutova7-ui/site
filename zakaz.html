@@ -3,77 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Оформление заказа - Перетяжка мягкой мебели</title>
+    <title>Оформить заказ - Перетяжка мебели | Мебельщик Артем</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        .ya-form-wrapper {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 1rem;
-            max-width: 650px;
+        .zakaz-container {
+            max-width: 680px;
             margin: 0 auto;
-            overflow: hidden;
+            padding: 0 1rem;
         }
-        
-        .ya-form-wrapper iframe {
-            display: block;
-            margin: 0 auto;
-            min-height: 500px;
+
+        .page-title {
+            text-align: center;
+            color: #9a8386;
+            margin-bottom: 1.5rem;
         }
-        
-        .photo-notice {
+
+        .info-block {
             background: #fff;
             border: 2px dashed #9a8386;
-            border-radius: 10px;
+            border-radius: 12px;
             padding: 1.5rem;
-            margin: 1.5rem auto;
+            margin-bottom: 2rem;
             text-align: center;
-            max-width: 650px;
+        }
+
+        .info-block .icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-block p {
+            margin: 0.5rem 0;
+            color: #5a4e50;
+        }
+
+        .form-wrapper {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .form-wrapper iframe {
+            display: block;
+            width: 100%;
+            border: none;
+        }
+
+        .telegram-block {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .telegram-block .btn {
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 700px) {
+            .form-wrapper {
+                border-radius: 8px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <a href="index.html" class="logo">МебельщикАртем</a>
+            <a href="index.html" class="logo">Мебельщик Артем</a>
             <ul class="nav-links">
                 <li><a href="index.html">Главная</a></li>
                 <li><a href="catalog.html">Примеры работ</a></li>
-                <li><a href="zakaz.html">Оформить заказ</a></li>
+                <li><a href="zakaz.html" class="active">Оформить заказ</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <h2 style="text-align: center; color: #9a8386;">Оформите заявку на перетяжку</h2>
-        
-        <div class="photo-notice">
-            <p style="font-size: 1.5rem; margin-bottom: 0.5rem;">📸</p>
-            <p style="color: #9a8386; font-size: 1.1rem;">
-                <strong>Не забудьте прикрепить фото мебели!</strong><br>
-                В форме ниже можно прикрепить до 20 файлов
-            </p>
-        </div>
+        <div class="zakaz-container">
+            <h1 class="page-title">📋 Оформите заявку на перетяжку</h1>
 
-        <!-- Форма Яндекс -->
-        <div class="ya-form-wrapper">
-            <script src="https://forms.yandex.ru/_static/embed.js"></script>
-            <iframe 
-                src="https://forms.yandex.ru/u/6a2e940c068ff09214a8c762?iframe=1" 
-                frameborder="0" 
-                name="ya-form-6a2e940c068ff09214a8c762" 
-                width="100%"
-                style="min-height: 550px;">
-            </iframe>
-        </div>
+            <div class="info-block">
+                <div class="icon">📸</div>
+                <p><strong>Не забудьте прикрепить фото мебели!</strong></p>
+                <p>Это ускорит расчёт стоимости и покажет реальный объём работы</p>
+                <p style="font-size: 0.85rem; color: #888;">Можно прикрепить до 20 файлов прямо в форме</p>
+            </div>
 
-        <div style="text-align: center; margin-top: 2rem;">
-            <p style="color: #9a8386;">Удобнее сразу написать в Telegram?</p>
-            <a href="https://t.me/kish_mish_sb" 
-               class="btn" target="_blank">
-               📱 Написать в Telegram
-            </a>
+            <div class="form-wrapper">
+                <script src="https://forms.yandex.ru/_static/embed.js"></script>
+                <iframe 
+                    src="https://forms.yandex.ru/u/6a2e940c068ff09214a8c762?iframe=1" 
+                    frameborder="0" 
+                    name="ya-form-6a2e940c068ff09214a8c762"
+                    style="min-height: 580px; width: 100%;">
+                </iframe>
+            </div>
+
+            <div class="telegram-block">
+                <p style="color: #9a8386;">Удобнее написать в мессенджер?</p>
+                <a href="https://t.me/kish_mish_sb" class="btn" target="_blank">
+                    📱 Написать в Telegram
+                </a>
+            </div>
         </div>
     </main>
 
